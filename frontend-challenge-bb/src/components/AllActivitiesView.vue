@@ -9,9 +9,25 @@
 </template>
 
 <script>
-import ActivityCard from "./ActivityCard.vue";
+import ActivityCard from './ActivityCard.vue';
+import getActivities from '../services/helpers';
 export default {
   components: { ActivityCard },
-  inject: ["activities"],
+  // inject: ["activities"],
+  data() {
+    return {
+      activities: [],
+    }
+  },
+  methods: {
+    async loadActivities() {
+      this.activities = await getActivities();
+
+    }
+  },
+  mounted() {
+    this.loadActivities();
+  }
+
 };
 </script>

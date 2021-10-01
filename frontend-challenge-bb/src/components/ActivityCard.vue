@@ -1,20 +1,18 @@
 <template>
   <section class="activityCardLarge">
     <div>
-      <img :src="activity.image" :alt="activity.name" class="acImg" />
+      <img :src="activity.activity.image[0]" :alt="activity.title" class="acImg" />
     </div>
     <div class="acHeader">
-      <h2>{{ activity.name }}</h2>
-      <img v-if="activity.participants === 1" :src="people1SVG" class="acPeopleSVG" />
-      <img v-else-if="activity.participants === 2" :src="people2SVG" class="acPeopleSVG" />
-      <img v-if="activity.participants > 2" :src="people3SVG" class="acPeopleSVG" />
+      <h2>{{ activity.title }}</h2>
+      <img :src="participantsSVG" class="acPeopleSVG" />
     </div>
     <p class="acLocation">
       <img :src="locationSVG" class="acLocationSVG" />
-      {{ activity.location }}
+      {{ activity.activity.locations[0].province }}
     </p>
-    <p class="acDescription">{{ activity.description }}</p>
-    <h3 class="acPoints">{{ activity.market_price }}</h3>
+    <p class="acDescription">{{ activity.activity.description }}</p>
+    <h3 class="acPoints">{{ activity.points }}</h3>
   </section>
 </template>
 
@@ -24,11 +22,20 @@ export default {
   data() {
     return {
       locationSVG: require("../assets/LocationPink.svg"),
-      people1SVG: require("../assets/Personas1.svg"),
-      people2SVG: require("../assets/PersonasPara2.svg"),
-      people3SVG: require("../assets/Personas2+.svg"),
     };
   },
+  computed: {
+    participantsSVG() {
+      if (this.activity.activity.participants === 1) {
+        return require("../assets/Personas1.svg");
+      } else if (this.activity.participants === 2) {
+        return require("../assets/PersonasPara2.svg");
+      } else {
+        return require("../assets/Personas2+.svg");
+      }
+    }
+  }
+
 };
 </script>
 <!-- https://codeburst.io/managing-svg-images-in-vue-js-applications-88a0570d8e88*/ -->
