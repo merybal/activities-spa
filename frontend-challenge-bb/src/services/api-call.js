@@ -13,7 +13,15 @@ export const getActivities = async (page) => {
   return { linkHeader: linkHeader, data: data, };
 };
 
-export const getPageOne = async () => {
-  return await getActivities(1);
-};
+// export const getPageOne = async () => {
+//   return await getActivities(1);
+// };
 
+export const getActivity = async (id) => {
+  const api = `https://json-biglifeapp.herokuapp.com/activity/${id}`;
+  const response = await fetch(api);
+  const data = await response.json();
+  const parsedActivity = JSON.parse(data.activity);
+  data.activity = parsedActivity;
+  return data;
+}

@@ -1,6 +1,6 @@
 <template>
-    <div class="paginatorBall">
-        <p class="paginatorBallText">{{ getDirection }}</p>
+    <div class="paginatorCurrentPage">
+        <p>{{ getDirection }}</p>
     </div>
 </template>
 

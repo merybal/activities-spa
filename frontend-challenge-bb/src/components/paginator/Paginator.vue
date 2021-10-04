@@ -1,19 +1,20 @@
 <template>
   <div class="paginator">
     <paginator-prev-next direction="prev" />
-    <div v-if="!checkCurrrentPage(firstPage)">
-      <paginator-number :number="firstPage" @click="goToPage(firstPage)"></paginator-number>
-      <p>...</p>
+    <div v-if="!checkCurrentPage(firstPage)" class="paginatorLaterals">
+      <paginator-number :number="firstPage" @click="goToPageNumber(firstPage)"></paginator-number>
+      <p class="paginatorNotCurrentPage">...</p>
     </div>
     <paginator-number
       v-for="number in numbers"
       :key="number"
       :number="number"
-      @click="goToPage(number)"
+      :currentPage="currentPage"
+      @click="goToPageNumber(number)"
     ></paginator-number>
-     <div v-if="!checkCurrrentPage(lastPage)">
-      <paginator-number :number="lastPage" @click="goToPage(lastPage)"></paginator-number>
-      <p>...</p>
+     <div v-if="!checkCurrentPage(lastPage)" class="paginatorLaterals">
+      <p class="paginatorNotCurrentPage">...</p>
+      <paginator-number :number="lastPage" @click="goToPageNumber(lastPage)"></paginator-number>
     </div>
     <paginator-prev-next direction="next" />
   </div>
@@ -22,11 +23,11 @@
 <script>
 import PaginatorNumber from "./PaginatorNumber.vue";
 import PaginatorPrevNext from "./PaginatorPrevNext.vue";
-import { getPageNumbers } from "../helpers/paginator";
+import { getPageNumbers } from "../../helpers/paginator";
 
 export default {
   props: ["parsedLinkHeader", "currentPage"],
-  emits: ['go-to-page'],
+  emits: ['goToPage'],
   components: {
     PaginatorNumber,
     PaginatorPrevNext,
@@ -39,20 +40,22 @@ export default {
     };
   },
   methods: {
-    checkCurrrentPage(targetPage) {
+    checkCurrentPage(targetPage) {
       return this.numbers.includes(targetPage);
     },
-    goToPage(pageNumber) {
-      console.log(pageNumber)
+    goToPageNumber(pageNumber) {
       this.$emit('goToPage', pageNumber);
     }
   },
   watch: {
     parsedLinkHeader() {
       this.numbers = getPageNumbers(this.parsedLinkHeader, this.currentPage);
-      this.lastPage = parseInt(this.parsedLinkHeader.last._page);
+      console.log('antes', this.lastPage)
       this.firstPage = parseInt(this.parsedLinkHeader.first._page);
+      this.lastPage = parseInt(this.parsedLinkHeader.last._page);
+      console.log('despues', this.lastPage)
     },
+    
   },
 };
 </script>

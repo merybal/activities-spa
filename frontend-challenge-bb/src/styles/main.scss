@@ -1,14 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+/*General*/
 * {
   font-family: "Quicksand", sans-serif;
   margin: 0;
 }
+
+h1 {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 37.5px;
+  margin-bottom: 20px;
+}
+
 h2 {
   font-weight: 700;
   font-size: 18px;
   line-height: 22.5px;
   color: #464646;
 }
+
+/*All Activities View*/
 
 .allActivitiesContainer {
   margin-left: auto;
@@ -17,22 +28,45 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   row-gap: 44px;
-  column-gap: 21px;
+  justify-content: space-between;
   max-width: 1150px;
 }
 
+/*Activity Card*/
 .activityCardLarge {
   width: 369px;
   height: 404px;
-  flex-basis: 369px;
 }
 
-.acImg {
+.activityCardSmall {
+  width: 271px;
+  height: 370px;
+}
+
+.acImgL {
   width: 369px;
   height: 240px;
   border-radius: 4px;
   margin-bottom: 14px;
+  overflow: hidden;
 }
+
+.acImgL:hover {
+  cursor: pointer;
+}
+
+.acImgS {
+  width: 271px;
+  height: 200px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.acImgS:hover {
+  cursor: pointer;
+}
+
 .acHeader {
   display: flex;
   align-items: center;
@@ -40,17 +74,15 @@ h2 {
   margin-bottom: 12px;
 }
 
+.acHeader:hover {
+  cursor: pointer;
+}
+
 .acPeopleSVG {
   height: 16px;
 }
 
-.acLocationContainer {
-  display: flex;
-  flex-direction: row;
-}
-
 .acLocationSVG {
-  fill: #ff6c5e;
   height: 12px;
 }
 
@@ -85,10 +117,20 @@ h2 {
 
 .paginator {
   display: flex;
-  gap: 20px;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 60px;
+  margin-bottom: 156px;
 }
 
-.paginatorBall {
+
+/*Paginator*/
+.paginatorLaterals {
+  display: flex;
+  gap: 10px;
+}
+
+.paginatorCurrentPage {
   height: 32px;
   width: 32px;
   background-color: #ff6c5e;
@@ -96,16 +138,173 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.paginatorBallText {
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 18px;
   font-weight: 500;
 }
 
-.paginatorNumberUnselected {
+.paginatorCurrentPage:hover {
+  cursor: pointer;
+}
+
+.paginatorNotCurrentPage {
+  height: 32px;
+  width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #000000;
   font-size: 18px;
   font-weight: 500;
+}
+
+.paginatorNotCurrentPage:hover {
+  cursor: pointer;
+}
+
+
+/*Activity Detail View*/
+
+.activityDetailContainer {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 64px;
+  max-width: 1150px;
+}
+
+.adArrow {
+  height: 23px;
+  margin-bottom: 24px;
+}
+
+/*Activity Description*/
+.adDescriptionContainer {
+  display: flex;
+  gap: 33px;
+  margin-bottom: 95px;
+}
+
+.adCarousel {
+  width: 563px;
+  height: 371px;
+  border-radius: 4px;
+}
+
+.adDescription {
+  width: 466px;
+}
+
+.adDescriptionText {
+  margin-bottom: 25px;
+}
+
+.adParticipants {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 25px;
+}
+
+.adPeopleSVG {
+  width: 24px;
+  height: 24px;
+}
+
+.adLocationContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  font-size: 16px;
+  line-height: 20px;
+  gap: 8px;
+  margin-bottom: 80px;
+}
+
+.adLocationSVG {
+  height: 24px;
+  width: 24px;
+}
+
+.adPoints {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+/*Activity Benefits*/
+
+.adDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 565px;
+}
+
+.adTitleContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.adDetailsTitle {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 27px;
+  letter-spacing: -1px;
+  color: #464646;
+  margin-bottom: 8px;
+}
+
+.adUnderlined {
+  width: 156px;
+  height: 3px;
+  background-color: #ff6c5f;
+}
+
+.adBenefits {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 22px;
+  color: #4F4F4F;
+}
+
+.adBenefits p {
+  margin-bottom: 24px;
+}
+
+.adBenefits li {
+  margin-bottom: 24px;
+}
+
+.adRulesSVG {
+  height: 24px;
+  width: 24px;
+}
+
+.adRulesTitle {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 27px;
+  letter-spacing: -1px;
+  color: #464646;
+  margin-bottom: 27px;
+  display: flex;
+  gap: 10px;
+}
+
+.adRules {
+  margin-bottom: 64px;
+}
+
+/*Similar Activities*/
+.similarActivitiesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1150px;
+  margin-bottom: 120px;
 }
