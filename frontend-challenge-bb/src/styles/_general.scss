@@ -1,0 +1,25 @@
+* {
+  font-family: "Quicksand", sans-serif;
+  margin: 0;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 37.5px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #464646;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+a {
+  text-decoration: none;
+}

@@ -8,10 +8,21 @@ import App from "./App.vue";
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { path: "/actividades", component: AllActivitiesView }, 
-    { path: "/actividades/:activityId", component: ActivityDetailView, props: true},
-
+    { path: "/", redirect: "/actividades" },
+    { path: "/actividades", component: AllActivitiesView },
+    {
+      path: "/actividades/:activityId",
+      component: ActivityDetailView,
+      props: true,
+    },
   ],
+  scrollBehavior() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({ left: 0, top: 0 });
+      }, 300);
+    });
+  },
 });
 
 const app = createApp(App);

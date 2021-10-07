@@ -11,6 +11,7 @@
     <paginator
       :parsedLinkHeader="parsedLinkHeader"
       :currentPage="currentPage"
+      :totalCount="totalCount"
       @go-to-page="switchPage"
     />
   </section>
@@ -28,6 +29,7 @@ export default {
       activities: [],
       parsedLinkHeader: {},
       currentPage: 1,
+      totalCount: 0,
     };
   },
   methods: {
@@ -39,8 +41,10 @@ export default {
         this.currentPage = parseInt(this.$route.query.page);
       }
       const response = await getActivities(this.currentPage);
+      console.log(response)
       this.activities = response.data;
       this.parsedLinkHeader = response.linkHeader;
+      this.totalCount = response.totalCount;
     },
   },
   watch: {

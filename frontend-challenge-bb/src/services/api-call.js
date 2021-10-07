@@ -1,4 +1,4 @@
-import { getLinkHeader } from "../helpers/paginator";
+import { getLinkHeader, getTotalCount } from "../helpers/paginator";
 import { activitiesPerPage } from "../constants/constants";
 
 export const getActivities = async (page) => {
@@ -10,12 +10,13 @@ export const getActivities = async (page) => {
     item.activity = parsedActivity;
   }
   const linkHeader = await getLinkHeader(response);
-  return { linkHeader: linkHeader, data: data, };
+  const totalCount = await getTotalCount(response);
+  return { 
+    linkHeader: linkHeader, 
+    data: data, 
+    totalCount: totalCount,
+  };
 };
-
-// export const getPageOne = async () => {
-//   return await getActivities(1);
-// };
 
 export const getActivity = async (id) => {
   const api = `https://json-biglifeapp.herokuapp.com/activity/${id}`;
@@ -24,4 +25,4 @@ export const getActivity = async (id) => {
   const parsedActivity = JSON.parse(data.activity);
   data.activity = parsedActivity;
   return data;
-}
+};

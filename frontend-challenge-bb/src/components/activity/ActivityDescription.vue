@@ -1,25 +1,7 @@
 <template>
   <section>
-    <!-- <vue-slick-carousel v-bind="settings">
-      <div>
-        <img :src="activity.activity.image[0]" :alt="activity.title" />
-      </div>
-      <div>
-        <img :src="activity.activity.image[1]" :alt="activity.title" />
-      </div>
-      <div>
-        <img :src="activity.activity.image[2]" :alt="activity.title" />
-      </div>
-      <div>
-        <img :src="activity.activity.image[3]" :alt="activity.title" />
-      </div>
-    </vue-slick-carousel> -->
     <div class="adDescriptionContainer">
-      <img
-        :src="activity.activity.image[0]"
-        alt="image carousel"
-        class="adCarousel"
-      />
+      <image-carousel :images="activity.activity.image"></image-carousel>
       <div class="adDescription">
         <h1>{{ activity.title }}</h1>
         <p class="adDescriptionText">{{ activity.activity.description }}</p>
@@ -38,24 +20,16 @@
 </template>
 
 <script>
-// import VueSlickCarousel from "vue-slick-carousel";
+import ImageCarousel from "./ImageCarousel.vue";
+
 export default {
-  props: ['activity'],
-  // components: {
-  //   // VueSlickCarousel,
-  // },
+  props: ["activity"],
+  components: {
+    ImageCarousel,
+  },
   data() {
     return {
       locationSVG: require("../../assets/Location.svg"),
-      // settings: {
-      //   dots: true,
-      //   dotsClass: "slick-dots custom-dot-class",
-      //   edgeFriction: 0.35,
-      //   infinite: false,
-      //   speed: 500,
-      //   slidesToShow: 1,
-      //   slidesToScroll: 1,
-      // },
     };
   },
   computed: {
@@ -69,6 +43,7 @@ export default {
       }
     },
     participantsText() {
+      console.log("here", this.activity.activity.image);
       if (this.activity.activity.participants === 1) {
         return "Para 1 persona";
       } else {
@@ -76,8 +51,5 @@ export default {
       }
     },
   },
-  mounted() {
-    console.log('activityDescription', this.activity);
-  }
 };
 </script>

@@ -27,8 +27,10 @@ export default {
   },
   methods: {
     async fillActivityData() {
-      const activity = await getActivity(this.$route.params.activityId);
-      this.activity = activity;
+      if (this.$route.params.activityId) {
+        const activity = await getActivity(this.$route.params.activityId);
+        this.activity = activity;
+      }
     },
     goBack() {
       this.$router.go(-1);

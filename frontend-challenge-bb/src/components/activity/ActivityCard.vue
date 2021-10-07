@@ -16,7 +16,7 @@
       {{ activity.activity.locations[0].province }}
     </p>
     <p class="acDescription">{{ activity.activity.description }}</p>
-    <h3 class="acPoints">{{ activity.points }}</h3>
+    <h3 class="acPoints">{{ activity.points }} puntos</h3>
   </section>
 </template>
 
