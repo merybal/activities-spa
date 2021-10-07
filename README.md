@@ -28,7 +28,7 @@ From your terminal, access the directory /frontend-challenge-bb (inside your rep
 This will install the rest of the dependencies.
 
 ### Step 3: Run server
-Start the server from your terminal:
+Start the server:
 ```
  npm run serve
 ```
