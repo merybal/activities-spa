@@ -33,3 +33,6 @@ Start the server from your terminal:
  npm run serve
 ```
 Once it's running, use the localhost link provided in the terminal to see the app in the browser. 
+
+### Note:
+The API used for this project takes a couple of seconds to start. If nothing shows up at first, refresh the page and it will work.
