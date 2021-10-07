@@ -13,7 +13,7 @@
 ### Step 1: Clone repository
 Clone the project repository from your terminal:
 ```
- git clone https://github.com/merybal/frontend-challenge-bb.git
+ git clone https://github.com/merybal/activities-spa.git
 ```
 or directly from GitHub.
 
@@ -21,7 +21,7 @@ or directly from GitHub.
 Download and install Node.js on your computer.
 Install Vue CLI globally from your terminal, as indicated in it's [documentation](https://cli.vuejs.org/). 
 
-Access from your terminal the directory where you stored the repository on your computer and type:
+From your terminal, access the directory /frontend-challenge-bb (inside your repository) and type:
 ```
  npm install
 ```
