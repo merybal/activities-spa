@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  props: ['activity'],
+  props: ["activity"],
   data() {
     return {
       rulesSVG: require("../../assets/Reglas.svg"),

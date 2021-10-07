@@ -1,0 +1,58 @@
+.paginator {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 60px;
+  margin-bottom: 24px;
+}
+
+.paginatorLaterals {
+  display: flex;
+  gap: 10px;
+}
+
+.paginatorCurrentPage {
+  height: 32px;
+  width: 32px;
+  background-color: #ff6c5e;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.paginatorCurrentPage:hover {
+  cursor: pointer;
+}
+
+.paginatorNotCurrentPage {
+  height: 32px;
+  width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.paginatorNotCurrentPage:hover {
+  cursor: pointer;
+}
+
+.paginatorEllipsis:hover {
+  cursor: default;
+}
+
+.paginatorResultsCount {
+  margin-bottom: 110px;
+  display: flex;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #bdbdbd;
+}

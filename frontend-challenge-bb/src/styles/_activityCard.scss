@@ -1,0 +1,80 @@
+.activityCardLarge {
+  width: 369px;
+  height: 404px;
+}
+
+.activityCardSmall {
+  width: 271px;
+  height: 370px;
+}
+
+.acImgL {
+  width: 369px;
+  height: 240px;
+  border-radius: 4px;
+  margin-bottom: 14px;
+  object-fit: cover;
+}
+
+.acImgL:hover {
+  cursor: pointer;
+}
+
+.acImgS {
+  width: 271px;
+  height: 200px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+
+.acImgS:hover {
+  cursor: pointer;
+}
+
+.acHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.acHeader:hover {
+  cursor: pointer;
+}
+
+.acPeopleSVG {
+  height: 16px;
+}
+
+.acLocationSVG {
+  height: 12px;
+}
+
+.acLocation {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17.5px;
+  color: #000000;
+  margin-bottom: 14px;
+  display: flex;
+  gap: 9px;
+  align-items: center;
+}
+
+.acDescription {
+  font-weight: 400;
+  font-size: 14px;
+  height: 54px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.acPoints {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  color: #464646;
+}

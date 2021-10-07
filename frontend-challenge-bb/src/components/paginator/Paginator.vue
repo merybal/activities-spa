@@ -10,7 +10,7 @@
           :number="firstPage"
           @click="goToPageNumber(firstPage)"
         ></paginator-number>
-        <p class="paginatorNotCurrentPage">...</p>
+        <p class="paginatorNotCurrentPage paginatorEllipsis">...</p>
       </div>
       <paginator-number
         v-for="number in numbers"
@@ -20,7 +20,7 @@
         @click="goToPageNumber(number)"
       ></paginator-number>
       <div v-if="!checkCurrentPage(lastPage)" class="paginatorLaterals">
-        <p class="paginatorNotCurrentPage">...</p>
+        <p class="paginatorNotCurrentPage paginatorEllipsis">...</p>
         <paginator-number
           :number="lastPage"
           @click="goToPageNumber(lastPage)"
@@ -63,9 +63,13 @@ export default {
   },
   computed: {
     getResultsCount() {
-      const response = getDisplayedItems(this.currentPage, this.totalCount, this.lastPage);
+      const response = getDisplayedItems(
+        this.currentPage,
+        this.totalCount,
+        this.lastPage
+      );
       return `${response.from}-${response.to} de ${this.totalCount} resultados`;
-    }
+    },
   },
   watch: {
     parsedLinkHeader() {

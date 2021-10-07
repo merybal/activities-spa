@@ -43,7 +43,6 @@ export default {
       }
     },
     participantsText() {
-      console.log("here", this.activity.activity.image);
       if (this.activity.activity.participants === 1) {
         return "Para 1 persona";
       } else {

@@ -41,14 +41,13 @@ export default {
         this.currentPage = parseInt(this.$route.query.page);
       }
       const response = await getActivities(this.currentPage);
-      console.log(response)
       this.activities = response.data;
       this.parsedLinkHeader = response.linkHeader;
       this.totalCount = response.totalCount;
     },
   },
   watch: {
-    '$route': "fillData",
+    $route: "fillData",
   },
   created() {
     this.fillData();

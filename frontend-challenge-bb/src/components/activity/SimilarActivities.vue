@@ -1,10 +1,7 @@
 <template>
   <section>
     <p class="adRulesTitle">Otras actividades similares:</p>
-    <Carousel
-      :settings="settings"
-      class="carouselContainer"
-    >
+    <Carousel :settings="settings" class="carouselContainer">
       <Slide
         class="carouselSlide"
         v-for="activity in similarActivities"
@@ -27,7 +24,7 @@
 <script>
 import { Carousel, Navigation, Slide } from "vue3-carousel";
 import ActivityCard from "./ActivityCard.vue";
-import { getActivities } from "../../services/api-call";
+import { getSimilarActivities } from "../../helpers/similar-activities";
 
 import "vue3-carousel/dist/carousel.css";
 
@@ -44,17 +41,12 @@ export default {
       settings: {
         itemsToShow: 4,
         snapAlign: "start",
-        // wrapAround: true,
-        // modelValue: 0,
-        // currentSlide: 1,
-        // autoplay: "2000",
       },
     };
   },
   methods: {
     async fetchSimilarActivities() {
-      const response = await getActivities(10);
-      this.similarActivities = response.data.slice(1, 10);
+      this.similarActivities = await getSimilarActivities();
     },
   },
   created() {
@@ -63,7 +55,7 @@ export default {
 };
 </script>
 
-<style >
+<style scoped>
 .carouselContainer {
   width: 1150px;
   margin-top: -180px;
