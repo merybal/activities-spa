@@ -1,5 +1,7 @@
 # Activities Display
 
+SPA developed for displaying activities and their descriptions, with paginator, using Vue.js 3 and JavaScript.
+
 ## Dependencies
 - Vue.js 3
 - Vue Router
