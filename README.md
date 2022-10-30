@@ -1,7 +1,7 @@
 # Activities Display
 
 ## Dependencies
-- VueJS 3
+- Vue.js 3
 - Vue Router
 - [Vue CLI](https://cli.vuejs.org/)
 - [Node.js](https://nodejs.org/es/)
